@@ -10,16 +10,9 @@ def dfs(i, j, cnt, visited, land, di, dj, columns):
 
         if 0 <= ni < len(land) and 0 <= nj < len(land[0]):
             if not visited[ni][nj] and land[ni][nj] == 1:
-                cnt = dfs(
-                    ni, nj,
-                    cnt + 1,
-                    visited, land,
-                    di, dj,
-                    columns
-                )
+                cnt = dfs(ni, nj, cnt + 1, visited, land, di, dj, columns)
 
     return cnt
-
 
 def solution(land):
     n = len(land)
@@ -36,13 +29,7 @@ def solution(land):
 
             if land[i][j] == 1 and not visited[i][j]:
                 columns = set()
-
-                temp = dfs(
-                    i, j, 1,
-                    visited, land,
-                    di, dj,
-                    columns
-                )
+                temp = dfs(i, j, 1, visited, land, di, dj, columns)
                 
                 for column in columns:
                     cnt[column] += temp
