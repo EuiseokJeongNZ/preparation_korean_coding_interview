@@ -34,7 +34,7 @@ def solution(points, routes):
         direction(robot_num+1, routes[robot_num], points, dir)
         print(len(dir[robot_num+1]))
     
-    for positions in zip_longest(*dir.values(), fillvalue=None):
+    for positions in zip_longest(*dir.values()):
         positions = [p for p in positions if p is not None]
 
         counts = Counter(positions)
